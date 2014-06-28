@@ -16,6 +16,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SVProgressHUD.h"
 #import "SessionsViewController.h"
+#import "ScanViewController.h"
 
 @interface PairViewController (){
     Dating *_dating;
@@ -160,6 +161,8 @@
     }
 }
 - (IBAction)showReward:(id)sender {
+    ScanViewController *scan = [[ScanViewController alloc] init];
+    [self.navigationController pushViewController:scan animated:YES];
 }
 
 - (IBAction)showSession:(id)sender {

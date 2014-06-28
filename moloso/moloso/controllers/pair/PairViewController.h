@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *agreeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *cardView;
 @property (weak, nonatomic) IBOutlet UIView *resultView;
+@property (strong, nonatomic) IBOutlet UIView *popupView;
 
 @end
