@@ -53,6 +53,8 @@
 		27DD95D8195EADD000D65580 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95CF195EADD000D65580 /* AFURLSessionManager.m */; };
 		27DD95DD195EADEC00D65580 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27DD95DA195EADEC00D65580 /* SVProgressHUD.bundle */; };
 		27DD95DE195EADEC00D65580 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95DC195EADEC00D65580 /* SVProgressHUD.m */; };
+		27DD95E4195EAE4900D65580 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95E1195EAE4900D65580 /* CurrentUser.m */; };
+		27DD95E5195EAE4900D65580 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95E3195EAE4900D65580 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +142,10 @@
 		27DD95DA195EADEC00D65580 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = denpendencies/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		27DD95DB195EADEC00D65580 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = denpendencies/SVProgressHUD/SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
 		27DD95DC195EADEC00D65580 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = denpendencies/SVProgressHUD/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		27DD95E0195EAE4900D65580 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
+		27DD95E1195EAE4900D65580 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
+		27DD95E2195EAE4900D65580 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		27DD95E3195EAE4900D65580 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,7 @@
 		27DD950F195EA2C100D65580 /* moloso */ = {
 			isa = PBXGroup;
 			children = (
+				27DD95DF195EAE4900D65580 /* models */,
 				27DD953E195EA48900D65580 /* dependencies */,
 				27DD9518195EA2C100D65580 /* AppDelegate.h */,
 				27DD9519195EA2C100D65580 /* AppDelegate.m */,
@@ -372,6 +379,17 @@
 			name = SVHUD;
 			sourceTree = "<group>";
 		};
+		27DD95DF195EAE4900D65580 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				27DD95E0195EAE4900D65580 /* CurrentUser.h */,
+				27DD95E1195EAE4900D65580 /* CurrentUser.m */,
+				27DD95E2195EAE4900D65580 /* User.h */,
+				27DD95E3195EAE4900D65580 /* User.m */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -488,8 +506,10 @@
 				27DD95DE195EADEC00D65580 /* SVProgressHUD.m in Sources */,
 				27DD95D7195EADD000D65580 /* AFURLResponseSerialization.m in Sources */,
 				27DD951A195EA2C100D65580 /* AppDelegate.m in Sources */,
+				27DD95E5195EAE4900D65580 /* User.m in Sources */,
 				27DD95D2195EADD000D65580 /* AFHTTPSessionManager.m in Sources */,
 				27DD95D1195EADD000D65580 /* AFHTTPRequestOperationManager.m in Sources */,
+				27DD95E4195EAE4900D65580 /* CurrentUser.m in Sources */,
 				27DD95D3195EADD000D65580 /* AFNetworkReachabilityManager.m in Sources */,
 				27DD9516195EA2C100D65580 /* main.m in Sources */,
 			);
