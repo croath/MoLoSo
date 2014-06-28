@@ -65,6 +65,7 @@ NSString *UserGenderKey         = @"GenderKey";
     _avatar = [dict objectForKey:@"avatar"];
     _screenName = [dict objectForKey:@"screen_name"];
     _bio = [dict objectForKey:@"bio"];
+    _gender = [[dict objectForKey:@"gender"] integerValue];
 }
 
 - (NSDictionary*)dict{

@@ -97,6 +97,7 @@
     [_nameLabel setText:_dating.anotherUser.screenName];
     [_bioLabel setText:_dating.anotherUser.bio];
     [_agreeLabel setBackgroundImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"blue_btn" : @"pink_btn"] forState:UIControlStateNormal];
+    [_agreeLabel setTitle:(_dating.anotherUser.gender == 1 ? @"想见他" : @"想见她") forState:UIControlStateNormal];
     [_commonLabel setText:_dating.anotherUser.commanInterests];
 }
 
@@ -115,6 +116,11 @@
     [_cardView setUserInteractionEnabled:YES];
     UITapGestureRecognizer *rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toWebView)];
     [_cardView addGestureRecognizer:rec];
+    
+    [_popupView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *popr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removePop)];
+    [_popupView addGestureRecognizer:popr];
+    
 }
 
 - (void)toWebView{
@@ -133,7 +139,7 @@
         
         BOOL allAccept = [self judgeAcceptStatus];
         if (allAccept) {
-            
+            [self.view addSubview:_popupView];
         }
         
     } failed:^(NSError *error) {
@@ -160,6 +166,11 @@
         return NO;
     }
 }
+
+- (void)removePop{
+    [_popupView removeFromSuperview];
+}
+
 - (IBAction)showReward:(id)sender {
     ScanViewController *scan = [[ScanViewController alloc] init];
     [self.navigationController pushViewController:scan animated:YES];
