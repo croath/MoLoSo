@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
 #import "CurrentUser.h"
+#import "Dating.h"
+
 typedef void (^getArraySucceed) (NSArray *array);
 typedef void (^failed) (NSError *error);
 typedef void (^postUserSucceed) ();
 typedef void (^getUserSucceed) (User *user);
 typedef void (^getCurrentUserSucceed) (CurrentUser *user);
+typedef void (^getDatingSucceed) (Dating *dating);
 
 @interface APIClient : NSObject
 
@@ -22,4 +24,11 @@ typedef void (^getCurrentUserSucceed) (CurrentUser *user);
 - (void)getUserInfoWithUserId:(NSString*)userId
                       succeed:(getCurrentUserSucceed)succeed
                        failed:(failed)failed;
+
+- (void)fetchcurrentDatingStatusSucceed:(getDatingSucceed)succeed
+                                 failed:(failed)failed;
+
+- (void)getDatingStatusWithDatingId:(NSString*)datingId
+                            succeed:(getDatingSucceed)succeed
+                             failed:(failed)failed;
 @end

@@ -57,87 +57,35 @@ static APIClient *__client;
     }];
 }
 
-- (void)getMarksArrayWithUserId:(NSString*)userId
-                        succeed:(getArraySucceed)succeed
-                         failed:(failed)failed{
-    [_tManager GET:[NSString stringWithFormat:@"/duser/%@/marks.json", userId]
-        parameters:nil
-           success:^(NSURLSessionDataTask *task, id responseObject) {
-               if (succeed) {
-                   succeed([responseObject objectForKey:@"marks"]);
-               }
-           } failure:^(NSURLSessionDataTask *task, NSError *error) {
-               if (failed) {
-                   failed(error);
-               }
-           }];
+- (void)getDatingStatusWithDatingId:(NSString*)datingId
+                            succeed:(getDatingSucceed)succeed
+                             failed:(failed)failed{
+    Dating *dating = [[Dating alloc] init];
+    [dating setAntherUser:[CurrentUser user]];
+    if (succeed) {
+        succeed(dating);
+    }
+//    [_tManager GET:[NSString stringWithFormat:@"/duser/%@/marks.json", datingId]
+//        parameters:nil
+//           success:^(NSURLSessionDataTask *task, id responseObject) {
+//               if (succeed) {
+//                   succeed([responseObject objectForKey:@"marks"]);
+//               }
+//           } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//               if (failed) {
+//                   failed(error);
+//               }
+//           }];
 }
 
-- (void)getBangssArrayWithUserId:(NSString*)userId
-                         succeed:(getArraySucceed)succeed
-                          failed:(failed)failed{
-    [_tManager GET:[NSString stringWithFormat:@"/duser/%@/bangs.json", userId]
-        parameters:nil
-           success:^(NSURLSessionDataTask *task, id responseObject) {
-               if (succeed) {
-                   succeed([responseObject objectForKey:@"bangs"]);
-               }
-           } failure:^(NSURLSessionDataTask *task, NSError *error) {
-               if (failed) {
-                   failed(error);
-               }
-           }];
+- (void)fetchcurrentDatingStatusSucceed:(getDatingSucceed)succeed
+                                 failed:(failed)failed{
+    Dating *dating = [[Dating alloc] init];
+    [dating setAntherUser:[CurrentUser user]];
+    if (succeed) {
+        succeed(dating);
+    }
 }
-
-- (void)updateMarksArrayWithUserId:(NSString*)userId
-                             marks:(NSArray*)marks
-                           succeed:(getArraySucceed)succeed
-                            failed:(failed)failed{
-    NSString *marksString = [marks componentsJoinedByString:@","];
-    [_tManager POST:[NSString stringWithFormat:@"/duser/%@/marks.json", userId] parameters:@{@"marks": marksString} constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-    } success:^(NSURLSessionDataTask *task, id responseObject) {
-        if (succeed) {
-            succeed([responseObject objectForKey:@"bangs"]);
-        }
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        if (failed) {
-            failed(error);
-        }
-    }];
-}
-
-//- (void)getUserFollowingsWithUserId:(NSString*)userId
-//                                max:(NSInteger)max
-//                            succeed:(getArraySucceed)succeed{
-//    dispatch_queue_t queue = dispatch_queue_create("com.croath.quarter9.apiq0", 0);
-//    
-//    dispatch_async(queue, ^{
-//        dispatch_group_t group = dispatch_group_create();
-//        NSMutableArray *followings = [NSMutableArray array];
-//        for (int i = 0; i < max; i += 200) {
-//            dispatch_group_enter(group);
-//            [self getUserFollowingsWithUserId:userId start:i succeed:^(NSArray *array) {
-//                NSMutableArray *oneFollowings = [NSMutableArray array];
-//                [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//                    if ([obj isKindOfClass:[NSDictionary class]]) {
-//                        User *user = [[User alloc] initWithDictionary:obj];
-//                        [oneFollowings addObject:user];
-//                    }
-//                }];
-//                [followings addObjectsFromArray:oneFollowings];
-//                dispatch_group_leave(group);
-//            } failed:^(NSError *error) {
-//                dispatch_group_leave(group);
-//            }];
-//        }
-//        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-//        if (succeed) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                succeed(followings);
-//            });
-//        }
-//    });
-//}
 
 - (void)getUserInfoWithUserId:(NSString*)userId
                             succeed:(getCurrentUserSucceed)succeed

@@ -63,4 +63,8 @@ NSString *UserGenderKey         = @"GenderKey";
                            @"bio": _bio};
     return dict;
 }
+
+- (NSString*)commanInterests{
+    return @"张玮玮 送你一颗子弹 生活多美好\nx-japan 万有引力之虹 张悦然\n变形金刚4 知日 云上的日子";
+}
 @end

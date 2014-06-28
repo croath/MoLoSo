@@ -85,6 +85,7 @@
 		27DD96E6195EEF7800D65580 /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD96E4195EEF7800D65580 /* QRCodeViewController.xib */; };
 		27DD96EA195EEF8800D65580 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96E8195EEF8800D65580 /* ScanViewController.m */; };
 		27DD96EB195EEF8800D65580 /* ScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD96E9195EEF8800D65580 /* ScanViewController.xib */; };
+		27DD96EE195EFDCC00D65580 /* Dating.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96ED195EFDCC00D65580 /* Dating.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +247,8 @@
 		27DD96E7195EEF8800D65580 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		27DD96E8195EEF8800D65580 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		27DD96E9195EEF8800D65580 /* ScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanViewController.xib; sourceTree = "<group>"; };
+		27DD96EC195EFDCC00D65580 /* Dating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dating.h; sourceTree = "<group>"; };
+		27DD96ED195EFDCC00D65580 /* Dating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dating.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +503,8 @@
 				27DD95E3195EAE4900D65580 /* User.m */,
 				27DD9604195ED5F200D65580 /* Coupon.h */,
 				27DD9605195ED5F200D65580 /* Coupon.m */,
+				27DD96EC195EFDCC00D65580 /* Dating.h */,
+				27DD96ED195EFDCC00D65580 /* Dating.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -828,6 +833,7 @@
 				27DD95D2195EADD000D65580 /* AFHTTPSessionManager.m in Sources */,
 				27DD95D1195EADD000D65580 /* AFHTTPRequestOperationManager.m in Sources */,
 				27DD95E4195EAE4900D65580 /* CurrentUser.m in Sources */,
+				27DD96EE195EFDCC00D65580 /* Dating.m in Sources */,
 				27DD9603195EB5EE00D65580 /* APIClient.m in Sources */,
 				27DD95D3195EADD000D65580 /* AFNetworkReachabilityManager.m in Sources */,
 				27DD95F0195EB1CD00D65580 /* PSAlertView.m in Sources */,
