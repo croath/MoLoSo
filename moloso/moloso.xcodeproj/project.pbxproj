@@ -55,6 +55,13 @@
 		27DD95DE195EADEC00D65580 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95DC195EADEC00D65580 /* SVProgressHUD.m */; };
 		27DD95E4195EAE4900D65580 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95E1195EAE4900D65580 /* CurrentUser.m */; };
 		27DD95E5195EAE4900D65580 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95E3195EAE4900D65580 /* User.m */; };
+		27DD95EF195EB1CD00D65580 /* PSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95EA195EB1CD00D65580 /* PSActionSheet.m */; };
+		27DD95F0195EB1CD00D65580 /* PSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95EC195EB1CD00D65580 /* PSAlertView.m */; };
+		27DD95F1195EB1CD00D65580 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95EE195EB1CD00D65580 /* UIImage+Color.m */; };
+		27DD95F8195EB2B600D65580 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95F5195EB2B600D65580 /* GuideViewController.m */; };
+		27DD95F9195EB2B600D65580 /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD95F6195EB2B600D65580 /* GuideViewController.xib */; };
+		27DD95FE195EB4D900D65580 /* PairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95FC195EB4D900D65580 /* PairViewController.m */; };
+		27DD95FF195EB4D900D65580 /* PairViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD95FD195EB4D900D65580 /* PairViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +153,20 @@
 		27DD95E1195EAE4900D65580 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
 		27DD95E2195EAE4900D65580 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		27DD95E3195EAE4900D65580 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		27DD95E7195EB1CD00D65580 /* GlobalDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDefines.h; sourceTree = "<group>"; };
+		27DD95E9195EB1CD00D65580 /* PSActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSActionSheet.h; sourceTree = "<group>"; };
+		27DD95EA195EB1CD00D65580 /* PSActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSActionSheet.m; sourceTree = "<group>"; };
+		27DD95EB195EB1CD00D65580 /* PSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAlertView.h; sourceTree = "<group>"; };
+		27DD95EC195EB1CD00D65580 /* PSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlertView.m; sourceTree = "<group>"; };
+		27DD95ED195EB1CD00D65580 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		27DD95EE195EB1CD00D65580 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		27DD95F4195EB2B600D65580 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		27DD95F5195EB2B600D65580 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		27DD95F6195EB2B600D65580 /* GuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideViewController.xib; sourceTree = "<group>"; };
+		27DD95F7195EB2B600D65580 /* LoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDelegate.h; sourceTree = "<group>"; };
+		27DD95FB195EB4D900D65580 /* PairViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PairViewController.h; sourceTree = "<group>"; };
+		27DD95FC195EB4D900D65580 /* PairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PairViewController.m; sourceTree = "<group>"; };
+		27DD95FD195EB4D900D65580 /* PairViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PairViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +249,8 @@
 		27DD950F195EA2C100D65580 /* moloso */ = {
 			isa = PBXGroup;
 			children = (
+				27DD95F2195EB2A700D65580 /* controllers */,
+				27DD95E6195EB1CD00D65580 /* utils */,
 				27DD95DF195EAE4900D65580 /* models */,
 				27DD953E195EA48900D65580 /* dependencies */,
 				27DD9518195EA2C100D65580 /* AppDelegate.h */,
@@ -390,6 +413,58 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		27DD95E6195EB1CD00D65580 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				27DD95E7195EB1CD00D65580 /* GlobalDefines.h */,
+				27DD95E8195EB1CD00D65580 /* PSFoundation */,
+				27DD95ED195EB1CD00D65580 /* UIImage+Color.h */,
+				27DD95EE195EB1CD00D65580 /* UIImage+Color.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		27DD95E8195EB1CD00D65580 /* PSFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				27DD95E9195EB1CD00D65580 /* PSActionSheet.h */,
+				27DD95EA195EB1CD00D65580 /* PSActionSheet.m */,
+				27DD95EB195EB1CD00D65580 /* PSAlertView.h */,
+				27DD95EC195EB1CD00D65580 /* PSAlertView.m */,
+			);
+			path = PSFoundation;
+			sourceTree = "<group>";
+		};
+		27DD95F2195EB2A700D65580 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27DD95FA195EB4C200D65580 /* pair */,
+				27DD95F3195EB2B600D65580 /* guide */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		27DD95F3195EB2B600D65580 /* guide */ = {
+			isa = PBXGroup;
+			children = (
+				27DD95F4195EB2B600D65580 /* GuideViewController.h */,
+				27DD95F5195EB2B600D65580 /* GuideViewController.m */,
+				27DD95F6195EB2B600D65580 /* GuideViewController.xib */,
+				27DD95F7195EB2B600D65580 /* LoginDelegate.h */,
+			);
+			path = guide;
+			sourceTree = "<group>";
+		};
+		27DD95FA195EB4C200D65580 /* pair */ = {
+			isa = PBXGroup;
+			children = (
+				27DD95FB195EB4D900D65580 /* PairViewController.h */,
+				27DD95FC195EB4D900D65580 /* PairViewController.m */,
+				27DD95FD195EB4D900D65580 /* PairViewController.xib */,
+			);
+			path = pair;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -468,7 +543,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				27DD9592195EA49900D65580 /* UMShareEditViewController.xib in Resources */,
+				27DD95F9195EB2B600D65580 /* GuideViewController.xib in Resources */,
 				27DD9522195EA2C100D65580 /* Images.xcassets in Resources */,
+				27DD95FF195EB4D900D65580 /* PairViewController.xib in Resources */,
 				27DD9594195EA49900D65580 /* UMSLoginViewController.xib in Resources */,
 				27DD958F195EA49900D65580 /* UMSCommentDetailController.xib in Resources */,
 				27DD9595195EA49900D65580 /* UMSnsAccountViewController.xib in Resources */,
@@ -501,9 +578,12 @@
 				27DD95D6195EADD000D65580 /* AFURLRequestSerialization.m in Sources */,
 				27DD95D5195EADD000D65580 /* AFURLConnectionOperation.m in Sources */,
 				27DD95D4195EADD000D65580 /* AFSecurityPolicy.m in Sources */,
+				27DD95F1195EB1CD00D65580 /* UIImage+Color.m in Sources */,
 				27DD95D0195EADD000D65580 /* AFHTTPRequestOperation.m in Sources */,
 				27DD95D8195EADD000D65580 /* AFURLSessionManager.m in Sources */,
+				27DD95FE195EB4D900D65580 /* PairViewController.m in Sources */,
 				27DD95DE195EADEC00D65580 /* SVProgressHUD.m in Sources */,
+				27DD95EF195EB1CD00D65580 /* PSActionSheet.m in Sources */,
 				27DD95D7195EADD000D65580 /* AFURLResponseSerialization.m in Sources */,
 				27DD951A195EA2C100D65580 /* AppDelegate.m in Sources */,
 				27DD95E5195EAE4900D65580 /* User.m in Sources */,
@@ -511,7 +591,9 @@
 				27DD95D1195EADD000D65580 /* AFHTTPRequestOperationManager.m in Sources */,
 				27DD95E4195EAE4900D65580 /* CurrentUser.m in Sources */,
 				27DD95D3195EADD000D65580 /* AFNetworkReachabilityManager.m in Sources */,
+				27DD95F0195EB1CD00D65580 /* PSAlertView.m in Sources */,
 				27DD9516195EA2C100D65580 /* main.m in Sources */,
+				27DD95F8195EB2B600D65580 /* GuideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

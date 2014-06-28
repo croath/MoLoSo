@@ -7,13 +7,50 @@
 //
 
 #import "AppDelegate.h"
+#import "UMSocial.h"
+#import "MobClick.h"
+#import "GuideViewController.h"
+#import "CurrentUser.h"
+#import "PairViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self initUmeng];
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _window.backgroundColor = [UIColor whiteColor];
+    _window.tintColor = [UIColor whiteColor];
+    
+    if (![[CurrentUser user] isLogin]) {
+        GuideViewController *guideVC = [[GuideViewController alloc] init];
+        [guideVC setLoginDelegate:self];
+        [_window setRootViewController:guideVC];
+    } else {
+        [self directLogin];
+    }
+    
+    [_window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)initUmeng{
+    [MobClick startWithAppkey:@"53ae6c4a56240bb78e156761"];
+    [UMSocialData setAppKey:@"53ae6c4a56240bb78e156761"];
+}
+
+- (void)userLoginOK{
+    [self directLogin];
+}
+
+- (void)directLogin{
+    PairViewController *pairVC = [[PairViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pairVC];
+    nav.navigationBar.barStyle = UIBarStyleBlack;
+    [nav.navigationBar setTranslucent:NO];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav"] forBarMetrics:UIBarMetricsDefault];
+    [_window setRootViewController:nav];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
