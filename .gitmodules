@@ -4,3 +4,6 @@
 [submodule "moloso/moloso/denpendencies/SVProgressHUD"]
 	path = moloso/moloso/denpendencies/SVProgressHUD
 	url = https://github.com/samvermette/SVProgressHUD.git
+[submodule "moloso/moloso/denpendencies/Shimmer"]
+	path = moloso/moloso/denpendencies/Shimmer
+	url = https://github.com/facebook/Shimmer.git
