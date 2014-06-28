@@ -104,6 +104,7 @@
 }
 
 - (void)initViews{
+    [_resultView setHidden:YES];
     [_avatarView.layer setCornerRadius:50.f];
     [_avatarView.layer setMasksToBounds:YES];
     [_avatarView.layer setBorderColor:GREEN_COLOR.CGColor];
@@ -121,6 +122,10 @@
     [self.navigationController pushViewController:webVC animated:YES];
 }
 - (IBAction)agreePressed:(id)sender {
+    if ([self judgeAcceptStatus]) {
+        
+        return;
+    }
     [[APIClient sharedClient] agreeDatingWithDatingId:_dating.datingId succeed:^(Dating *dating) {
         _dating = dating;
         
@@ -146,10 +151,16 @@
         [_agreeLabel setEnabled:NO];
         return NO;
     } else if (iAccept && anotherAccept) {
+        [_agreeLabel setHidden:YES];
+        [_resultView setHidden:NO];
         return YES;
     } else {
         return NO;
     }
+}
+- (IBAction)showReward:(id)sender {
+}
+- (IBAction)showSession:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning

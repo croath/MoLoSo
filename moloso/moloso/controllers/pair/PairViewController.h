@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *commonLabel;
 @property (weak, nonatomic) IBOutlet UIButton *agreeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *cardView;
+@property (weak, nonatomic) IBOutlet UIView *resultView;
 
 @end
