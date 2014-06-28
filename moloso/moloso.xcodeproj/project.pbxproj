@@ -62,6 +62,7 @@
 		27DD95F9195EB2B600D65580 /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD95F6195EB2B600D65580 /* GuideViewController.xib */; };
 		27DD95FE195EB4D900D65580 /* PairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95FC195EB4D900D65580 /* PairViewController.m */; };
 		27DD95FF195EB4D900D65580 /* PairViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD95FD195EB4D900D65580 /* PairViewController.xib */; };
+		27DD9603195EB5EE00D65580 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9602195EB5EE00D65580 /* APIClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,8 @@
 		27DD95FB195EB4D900D65580 /* PairViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PairViewController.h; sourceTree = "<group>"; };
 		27DD95FC195EB4D900D65580 /* PairViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PairViewController.m; sourceTree = "<group>"; };
 		27DD95FD195EB4D900D65580 /* PairViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PairViewController.xib; sourceTree = "<group>"; };
+		27DD9601195EB5EE00D65580 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		27DD9602195EB5EE00D65580 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +252,7 @@
 		27DD950F195EA2C100D65580 /* moloso */ = {
 			isa = PBXGroup;
 			children = (
+				27DD9600195EB5EE00D65580 /* api */,
 				27DD95F2195EB2A700D65580 /* controllers */,
 				27DD95E6195EB1CD00D65580 /* utils */,
 				27DD95DF195EAE4900D65580 /* models */,
@@ -465,6 +469,15 @@
 			path = pair;
 			sourceTree = "<group>";
 		};
+		27DD9600195EB5EE00D65580 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				27DD9601195EB5EE00D65580 /* APIClient.h */,
+				27DD9602195EB5EE00D65580 /* APIClient.m */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -590,6 +603,7 @@
 				27DD95D2195EADD000D65580 /* AFHTTPSessionManager.m in Sources */,
 				27DD95D1195EADD000D65580 /* AFHTTPRequestOperationManager.m in Sources */,
 				27DD95E4195EAE4900D65580 /* CurrentUser.m in Sources */,
+				27DD9603195EB5EE00D65580 /* APIClient.m in Sources */,
 				27DD95D3195EADD000D65580 /* AFNetworkReachabilityManager.m in Sources */,
 				27DD95F0195EB1CD00D65580 /* PSAlertView.m in Sources */,
 				27DD9516195EA2C100D65580 /* main.m in Sources */,
