@@ -10,6 +10,7 @@
 
 typedef void (^getArraySucceed) (NSArray *array);
 typedef void (^failed) (NSError *error);
+typedef void (^postUserSucceed) ();
 
 @interface APIClient : NSObject
 

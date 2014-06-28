@@ -46,4 +46,16 @@ NSString *UserGenderKey         = @"GenderKey";
     }
     return self;
 }
+
+- (NSDictionary*)dict{
+    NSDictionary *dict = @{@"user_id": _userId,
+                           @"screen_name": _screenName,
+                           @"gender": @(_gender),
+                           @"avatar": _avatar,
+                           @"movie_count": @688,
+                           @"music_count": @305,
+                           @"book_count": @122,
+                           @"bio": _bio};
+    return dict;
+}
 @end

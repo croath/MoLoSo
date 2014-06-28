@@ -17,5 +17,6 @@
 @property (nonatomic, assign) NSInteger gender;//1 for male, 2 for female
 
 - (id)initWithDictionary:(NSDictionary*)dict;
+- (NSDictionary*)dict;
 
 @end

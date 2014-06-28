@@ -11,8 +11,8 @@
 #import "User.h"
 
 #define DOUBAN_API_BASE @"https://api.douban.com"
-//#define TOKYO3_API_BASE @"https://tokyo3.croath.com"
-#define TOKYO3_API_BASE @"http://127.0.0.1:3000"
+#define LOSOMO_API_BASE @"http://losomo.kenrick.cn:3333"
+//#define TOKYO3_API_BASE @"http://127.0.0.1:3000"
 
 @interface APIClient(){
     AFHTTPSessionManager *_dManager;
@@ -37,14 +37,24 @@ static APIClient *__client;
 - (id)init{
     self = [super init];
     if (self) {
-        _tManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:TOKYO3_API_BASE]];
-//        AFSecurityPolicy *p = [[AFSecurityPolicy alloc] init];
-//        [p setSSLPinningMode:AFSSLPinningModeNone];
-//        [p setAllowInvalidCertificates:YES];
-//        [_tManager setSecurityPolicy:p];
+        _tManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:LOSOMO_API_BASE]];
         _dManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:DOUBAN_API_BASE]];
     }
     return self;
+}
+
+- (void)postUserWithUser:(User*)user
+                 succeed:(postUserSucceed)succeed
+                  failed:(failed)failed{
+    [_tManager POST:@"/users" parameters:[user dict] success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (succeed) {
+            succeed();
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (failed) {
+            failed(error);
+        }
+    }];
 }
 
 - (void)getMarksArrayWithUserId:(NSString*)userId
