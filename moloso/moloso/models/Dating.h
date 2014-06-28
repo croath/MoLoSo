@@ -17,5 +17,6 @@
 @property (nonatomic, assign) BOOL acceptFemale;
 
 + (instancetype)sample;
+- (instancetype)initWithDictionary:(NSDictionary*)dict;
 
 @end

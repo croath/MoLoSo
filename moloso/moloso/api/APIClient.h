@@ -28,7 +28,11 @@ typedef void (^getDatingSucceed) (Dating *dating);
 - (void)fetchcurrentDatingStatusSucceed:(getDatingSucceed)succeed
                                  failed:(failed)failed;
 
-- (void)getDatingStatusWithDatingId:(NSString*)datingId
-                            succeed:(getDatingSucceed)succeed
-                             failed:(failed)failed;
+- (void)agreeDatingWithDatingId:(NSString*)datingId
+                        succeed:(getDatingSucceed)succeed
+                         failed:(failed)failed;
+
+- (void)postUserWithUser:(User*)user
+                 succeed:(postUserSucceed)succeed
+                  failed:(failed)failed;
 @end

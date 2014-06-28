@@ -37,7 +37,13 @@ static APIClient *__client;
 - (id)init{
     self = [super init];
     if (self) {
+//        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//        configuration.HTTPAdditionalHeaders = @{@"Content-Type": @"application/json"};
+        
         _tManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:LOSOMO_API_BASE]];
+        AFJSONRequestSerializer *rs = [AFJSONRequestSerializer serializer];
+        [_tManager setRequestSerializer:rs];
+        [_tManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
         _dManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:DOUBAN_API_BASE]];
     }
     return self;
@@ -46,7 +52,7 @@ static APIClient *__client;
 - (void)postUserWithUser:(User*)user
                  succeed:(postUserSucceed)succeed
                   failed:(failed)failed{
-    [_tManager POST:@"/users" parameters:[user dict] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [_tManager POST:@"/users.json" parameters:[user dict] success:^(NSURLSessionDataTask *task, id responseObject) {
         if (succeed) {
             succeed();
         }
@@ -59,10 +65,23 @@ static APIClient *__client;
 
 - (void)fetchcurrentDatingStatusSucceed:(getDatingSucceed)succeed
                                  failed:(failed)failed{
-    Dating *dating = [Dating sample];
-    if (succeed) {
-        succeed(dating);
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if ([CurrentUser user].gender == 1) {
+        [dict setObject:[CurrentUser user].userId forKey:@"user_male"];
+    } else {
+        [dict setObject:[CurrentUser user].userId forKey:@"user_female"];
     }
+    
+    [_tManager POST:@"/datings.json" parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (succeed) {
+            Dating *dating = [[Dating alloc] initWithDictionary:responseObject];
+            succeed(dating);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (failed) {
+            failed(error);
+        }
+    }];
 }
 
 - (void)agreeDatingWithDatingId:(NSString*)datingId

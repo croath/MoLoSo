@@ -15,8 +15,10 @@
     if (self) {
         _datingId = [dict objectForKey:@"id"];
         NSDictionary *userDict = [dict objectForKey:@"user"];
-        User *user = [[User alloc] initWithDictionary:userDict];
-        _anotherUser = user;
+        if (![userDict isKindOfClass:[NSNull class]]) {
+            User *user = [[User alloc] initWithDictionary:userDict];
+            _anotherUser = user;
+        }
         _acceptMale = [[dict objectForKey:@"accept_male"] boolValue];
         _acceptFemale = [[dict objectForKey:@"accept_female"] boolValue];
     }

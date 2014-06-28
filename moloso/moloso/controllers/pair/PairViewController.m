@@ -14,9 +14,11 @@
 #import "APIClient.h"
 #import "Dating.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SVProgressHUD.h"
 
 @interface PairViewController (){
     Dating *_dating;
+    FBShimmeringView *_shimmeringView;
 }
 
 @end
@@ -42,28 +44,35 @@
 
 - (void)loadRequest{
     [_mainView setHidden:YES];
-    __block FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:shimmeringView];
+    if (_shimmeringView == nil) {
+        _shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:_shimmeringView];
+    }
     
-    shimmeringView.contentView = _loadingView;
-    shimmeringView.shimmering = YES;
+    _shimmeringView.contentView = _loadingView;
+    _shimmeringView.shimmering = YES;
     
     [[APIClient sharedClient] fetchcurrentDatingStatusSucceed:^(Dating *dating) {
         _dating = dating;
-        [self renderingViews];
-        [_mainView setAlpha:0.0f];
-        [_mainView setHidden:NO];
-        [UIView animateWithDuration:0.5
-                         animations:^{
-                             [_mainView setAlpha:1.f];
-                             [_loadingView setAlpha:0.f];
-                         } completion:^(BOOL finished) {
-                             if (finished) {
-                                 [_loadingView setHidden:YES];
-                                 shimmeringView.shimmering = NO;
-                                 [shimmeringView removeFromSuperview];
-                             }
-                         }];
+        [self judgeAcceptStatus];
+        if (_dating.anotherUser != nil) {
+            [self renderingViews];
+            [_mainView setAlpha:0.0f];
+            [_mainView setHidden:NO];
+            [UIView animateWithDuration:0.5
+                             animations:^{
+                                 [_mainView setAlpha:1.f];
+                                 [_loadingView setAlpha:0.f];
+                             } completion:^(BOOL finished) {
+                                 if (finished) {
+                                     [_loadingView setHidden:YES];
+                                     _shimmeringView.shimmering = NO;
+                                     [_shimmeringView removeFromSuperview];
+                                 }
+                             }];
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"目前尚没有配对"];
+        }
     } failed:^(NSError *error) {
         
     }];
@@ -81,11 +90,11 @@
      @property (weak, nonatomic) IBOutlet UIButton *agreeLabel;
      @property (weak, nonatomic) IBOutlet UIImageView *cardView;
      */
-    [_avatarView setImageWithURL:[NSURL URLWithString:_dating.anotherUser.avatar] placeholderImage:nil];
-    [_genderImage setImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"male" : @"female"]];
-    [_nameLabel setText:_dating.anotherUser.screenName];
-    [_bioLabel setText:_dating.anotherUser.bio];
-    [_agreeLabel setBackgroundImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"blue_btn" : @"pink_btn"] forState:UIControlStateNormal];
+        [_avatarView setImageWithURL:[NSURL URLWithString:_dating.anotherUser.avatar] placeholderImage:nil];
+        [_genderImage setImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"male" : @"female"]];
+        [_nameLabel setText:_dating.anotherUser.screenName];
+        [_bioLabel setText:_dating.anotherUser.bio];
+        [_agreeLabel setBackgroundImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"blue_btn" : @"pink_btn"] forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -105,12 +114,43 @@
 }
 
 - (void)toWebView{
-//    NSString *urlStr = [NSString stringWithFormat:@"http://www.douban.com/people/%@/", _user.userId];
-        NSString *urlStr = [NSString stringWithFormat:@"http://www.douban.com/people/%@/", @"catsoup"];
+    NSString *urlStr = [NSString stringWithFormat:@"http://www.douban.com/people/%@/", _dating.anotherUser.userId];
+//        NSString *urlStr = [NSString stringWithFormat:@"http://www.douban.com/people/%@/", @"catsoup"];
     WebViewController *webVC = [[WebViewController alloc] initWithUrlStr:urlStr];
     [self.navigationController pushViewController:webVC animated:YES];
 }
 - (IBAction)agreePressed:(id)sender {
+    [[APIClient sharedClient] agreeDatingWithDatingId:_dating.datingId succeed:^(Dating *dating) {
+        _dating = dating;
+//        _dating.acceptFemale = YES;
+        [[CurrentUser user] setGender:1];
+        
+        BOOL allAccept = [self judgeAcceptStatus];
+        if (allAccept) {
+            
+        }
+        
+    } failed:^(NSError *error) {
+        
+    }];
+}
+
+- (BOOL)judgeAcceptStatus{
+    BOOL iAccept = ([CurrentUser user].gender == 1 && _dating.acceptMale) ||
+    ([CurrentUser user].gender == 0 && _dating.acceptFemale);
+    BOOL anotherAccept = ([CurrentUser user].gender == 1 && _dating.acceptFemale) ||
+    ([CurrentUser user].gender == 0 && _dating.acceptMale);
+    
+    if (!iAccept) {
+        return NO;
+    } else if (iAccept && !anotherAccept) {
+        [_agreeLabel setEnabled:NO];
+        return NO;
+    } else if (iAccept && anotherAccept) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning

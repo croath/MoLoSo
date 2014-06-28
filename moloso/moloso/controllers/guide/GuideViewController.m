@@ -55,9 +55,16 @@
         if (response.responseCode == UMSResponseCodeSuccess) {
             NSDictionary *douban = [response.data objectForKey:@"douban"] ;
             [[APIClient sharedClient] getUserInfoWithUserId:[douban objectForKey:@"usid"] succeed:^(CurrentUser *user) {
-                if (_loginDelegate != nil && [_loginDelegate respondsToSelector:@selector(userLoginOK)]) {
-                    [_loginDelegate performSelector:@selector(userLoginOK) withObject:nil];
-                }
+                PSAlertView *alert = [PSAlertView alertWithTitle:@"请选择性别"];
+                [alert addButtonWithTitle:@"男" block:^{
+                    [user setGender:1];
+                    [self callDelegateSuccess];
+                }];
+                [alert addButtonWithTitle:@"女" block:^{
+                    [user setGender:0];
+                    [self callDelegateSuccess];
+                }];
+                [alert show];
             } failed:^(NSError *error) {
                 
             }];
@@ -67,6 +74,16 @@
             [alert show];
         }
     });
+}
+
+- (void)callDelegateSuccess{
+    [[APIClient sharedClient] postUserWithUser:[CurrentUser user] succeed:^{
+        if (_loginDelegate != nil && [_loginDelegate respondsToSelector:@selector(userLoginOK)]) {
+            [_loginDelegate performSelector:@selector(userLoginOK) withObject:nil];
+        }
+    } failed:^(NSError *error) {
+        
+    }];
 }
 
 @end
