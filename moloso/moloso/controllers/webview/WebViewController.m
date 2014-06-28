@@ -30,12 +30,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
     // Do any additional setup after loading the view.
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self setTitle:@"豆瓣"];
     _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [_webView setScalesPageToFit:YES];
     [self.view addSubview:_webView];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
 }
 
 - (void)didReceiveMemoryWarning

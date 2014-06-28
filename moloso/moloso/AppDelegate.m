@@ -49,6 +49,7 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pairVC];
     nav.navigationBar.barStyle = UIBarStyleDefault;
     [nav.navigationBar setTranslucent:YES];
+    nav.interactivePopGestureRecognizer.enabled = YES;
 //    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav"] forBarMetrics:UIBarMetricsDefault];
     [_window setRootViewController:nav];
 }

@@ -15,6 +15,7 @@
 #import "Dating.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SVProgressHUD.h"
+#import "SessionsViewController.h"
 
 @interface PairViewController (){
     Dating *_dating;
@@ -160,7 +161,10 @@
 }
 - (IBAction)showReward:(id)sender {
 }
+
 - (IBAction)showSession:(id)sender {
+    SessionsViewController *session = [[SessionsViewController alloc] init];
+    [self.navigationController pushViewController:session animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
