@@ -20,7 +20,7 @@
     [self initUmeng];
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.backgroundColor = [UIColor whiteColor];
-    _window.tintColor = [UIColor whiteColor];
+    _window.tintColor = PINK_COLOR;
     
     if (![[CurrentUser user] isLogin]) {
         GuideViewController *guideVC = [[GuideViewController alloc] init];
@@ -47,9 +47,9 @@
 - (void)directLogin{
     PairViewController *pairVC = [[PairViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pairVC];
-    nav.navigationBar.barStyle = UIBarStyleBlack;
-    [nav.navigationBar setTranslucent:NO];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav"] forBarMetrics:UIBarMetricsDefault];
+    nav.navigationBar.barStyle = UIBarStyleDefault;
+    [nav.navigationBar setTranslucent:YES];
+//    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav"] forBarMetrics:UIBarMetricsDefault];
     [_window setRootViewController:nav];
 }
 							

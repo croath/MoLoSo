@@ -86,6 +86,7 @@
 		27DD96EA195EEF8800D65580 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96E8195EEF8800D65580 /* ScanViewController.m */; };
 		27DD96EB195EEF8800D65580 /* ScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD96E9195EEF8800D65580 /* ScanViewController.xib */; };
 		27DD96EE195EFDCC00D65580 /* Dating.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96ED195EFDCC00D65580 /* Dating.m */; };
+		27DD96F2195F0DF200D65580 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96F1195F0DF200D65580 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +250,8 @@
 		27DD96E9195EEF8800D65580 /* ScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanViewController.xib; sourceTree = "<group>"; };
 		27DD96EC195EFDCC00D65580 /* Dating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dating.h; sourceTree = "<group>"; };
 		27DD96ED195EFDCC00D65580 /* Dating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dating.m; sourceTree = "<group>"; };
+		27DD96F0195F0DF200D65580 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		27DD96F1195F0DF200D65580 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -536,6 +539,7 @@
 		27DD95F2195EB2A700D65580 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				27DD96EF195F0DF200D65580 /* webview */,
 				27DD96E1195EEF4600D65580 /* qrcode */,
 				27DD95FA195EB4C200D65580 /* pair */,
 				27DD95F3195EB2B600D65580 /* guide */,
@@ -690,6 +694,15 @@
 			path = qrcode;
 			sourceTree = "<group>";
 		};
+		27DD96EF195F0DF200D65580 /* webview */ = {
+			isa = PBXGroup;
+			children = (
+				27DD96F0195F0DF200D65580 /* WebViewController.h */,
+				27DD96F1195F0DF200D65580 /* WebViewController.m */,
+			);
+			path = webview;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -831,6 +844,7 @@
 				27DD951A195EA2C100D65580 /* AppDelegate.m in Sources */,
 				27DD95E5195EAE4900D65580 /* User.m in Sources */,
 				27DD95D2195EADD000D65580 /* AFHTTPSessionManager.m in Sources */,
+				27DD96F2195F0DF200D65580 /* WebViewController.m in Sources */,
 				27DD95D1195EADD000D65580 /* AFHTTPRequestOperationManager.m in Sources */,
 				27DD95E4195EAE4900D65580 /* CurrentUser.m in Sources */,
 				27DD96EE195EFDCC00D65580 /* Dating.m in Sources */,

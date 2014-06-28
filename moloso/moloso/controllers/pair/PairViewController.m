@@ -8,8 +8,12 @@
 
 #import "PairViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "User.h"
+#import "WebViewController.h"
 
-@interface PairViewController ()
+@interface PairViewController (){
+    User *_user;
+}
 
 @end
 
@@ -27,9 +31,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
     // Do any additional setup after loading the view from its nib.
     [self initViews];
+    [self toWebView];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)initViews{
@@ -37,6 +46,13 @@
     [_avatarView.layer setMasksToBounds:YES];
     [_avatarView.layer setBorderColor:GREEN_COLOR.CGColor];
     [_avatarView.layer setBorderWidth:3.f];
+}
+
+- (void)toWebView{
+//    NSString *urlStr = [NSString stringWithFormat:@"http://www.douban.com/people/%@/", _user.userId];
+        NSString *urlStr = [NSString stringWithFormat:@"http://www.douban.com/people/%@/", @"catsoup"];
+    WebViewController *webVC = [[WebViewController alloc] initWithUrlStr:urlStr];
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
