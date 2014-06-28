@@ -81,6 +81,10 @@
 		27DD96DC195EEB5C00D65580 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DD96DB195EEB5C00D65580 /* AVFoundation.framework */; };
 		27DD96DE195EEB6600D65580 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DD96DD195EEB6600D65580 /* CoreMedia.framework */; };
 		27DD96E0195EEB6F00D65580 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DD96DF195EEB6F00D65580 /* CoreVideo.framework */; };
+		27DD96E5195EEF7800D65580 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96E3195EEF7800D65580 /* QRCodeViewController.m */; };
+		27DD96E6195EEF7800D65580 /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD96E4195EEF7800D65580 /* QRCodeViewController.xib */; };
+		27DD96EA195EEF8800D65580 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96E8195EEF8800D65580 /* ScanViewController.m */; };
+		27DD96EB195EEF8800D65580 /* ScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD96E9195EEF8800D65580 /* ScanViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +240,12 @@
 		27DD96DB195EEB5C00D65580 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		27DD96DD195EEB6600D65580 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		27DD96DF195EEB6F00D65580 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		27DD96E2195EEF7800D65580 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		27DD96E3195EEF7800D65580 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		27DD96E4195EEF7800D65580 /* QRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeViewController.xib; sourceTree = "<group>"; };
+		27DD96E7195EEF8800D65580 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		27DD96E8195EEF8800D65580 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		27DD96E9195EEF8800D65580 /* ScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +531,7 @@
 		27DD95F2195EB2A700D65580 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				27DD96E1195EEF4600D65580 /* qrcode */,
 				27DD95FA195EB4C200D65580 /* pair */,
 				27DD95F3195EB2B600D65580 /* guide */,
 			);
@@ -661,6 +672,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		27DD96E1195EEF4600D65580 /* qrcode */ = {
+			isa = PBXGroup;
+			children = (
+				27DD96E2195EEF7800D65580 /* QRCodeViewController.h */,
+				27DD96E3195EEF7800D65580 /* QRCodeViewController.m */,
+				27DD96E4195EEF7800D65580 /* QRCodeViewController.xib */,
+				27DD96E7195EEF8800D65580 /* ScanViewController.h */,
+				27DD96E8195EEF8800D65580 /* ScanViewController.m */,
+				27DD96E9195EEF8800D65580 /* ScanViewController.xib */,
+			);
+			path = qrcode;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -750,8 +774,10 @@
 				27DD96D9195EEB3A00D65580 /* zbar-helpicons.png in Resources */,
 				27DD9590195EA49900D65580 /* UMSCommentInputController.xib in Resources */,
 				27DD9591195EA49900D65580 /* UMSCommentInputControlleriPad.xib in Resources */,
+				27DD96EB195EEF8800D65580 /* ScanViewController.xib in Resources */,
 				27DD958D195EA49900D65580 /* UMSocialLocalizable.strings in Resources */,
 				27DD95DD195EADEC00D65580 /* SVProgressHUD.bundle in Resources */,
+				27DD96E6195EEF7800D65580 /* QRCodeViewController.xib in Resources */,
 				27DD9593195EA49900D65580 /* UMShareEditViewControlleriPad.xib in Resources */,
 				27DD9596195EA49900D65580 /* UMSShareListController.xib in Resources */,
 				27DD96D7195EEB3A00D65580 /* zbar-back.png in Resources */,
@@ -787,12 +813,14 @@
 				27DD9687195EE7AA00D65580 /* bitstream.c in Sources */,
 				27DD95D0195EADD000D65580 /* AFHTTPRequestOperation.m in Sources */,
 				27DD95D8195EADD000D65580 /* AFURLSessionManager.m in Sources */,
+				27DD96E5195EEF7800D65580 /* QRCodeViewController.m in Sources */,
 				27DD968B195EE7AA00D65580 /* qrspec.c in Sources */,
 				27DD9688195EE7AA00D65580 /* mask.c in Sources */,
 				27DD95FE195EB4D900D65580 /* PairViewController.m in Sources */,
 				27DD95DE195EADEC00D65580 /* SVProgressHUD.m in Sources */,
 				27DD968A195EE7AA00D65580 /* qrinput.c in Sources */,
 				27DD95EF195EB1CD00D65580 /* PSActionSheet.m in Sources */,
+				27DD96EA195EEF8800D65580 /* ScanViewController.m in Sources */,
 				27DD968D195EE7AA00D65580 /* split.c in Sources */,
 				27DD95D7195EADD000D65580 /* AFURLResponseSerialization.m in Sources */,
 				27DD951A195EA2C100D65580 /* AppDelegate.m in Sources */,
