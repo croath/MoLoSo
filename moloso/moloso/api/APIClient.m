@@ -106,49 +106,49 @@ static APIClient *__client;
     }];
 }
 
-- (void)getUserFollowingsWithUserId:(NSString*)userId
-                                max:(NSInteger)max
-                            succeed:(getArraySucceed)succeed{
-    dispatch_queue_t queue = dispatch_queue_create("com.croath.quarter9.apiq0", 0);
-    
-    dispatch_async(queue, ^{
-        dispatch_group_t group = dispatch_group_create();
-        NSMutableArray *followings = [NSMutableArray array];
-        for (int i = 0; i < max; i += 200) {
-            dispatch_group_enter(group);
-            [self getUserFollowingsWithUserId:userId start:i succeed:^(NSArray *array) {
-                NSMutableArray *oneFollowings = [NSMutableArray array];
-                [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    if ([obj isKindOfClass:[NSDictionary class]]) {
-                        User *user = [[User alloc] initWithDictionary:obj];
-                        [oneFollowings addObject:user];
-                    }
-                }];
-                [followings addObjectsFromArray:oneFollowings];
-                dispatch_group_leave(group);
-            } failed:^(NSError *error) {
-                dispatch_group_leave(group);
-            }];
-        }
-        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-        if (succeed) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                succeed(followings);
-            });
-        }
-    });
-}
+//- (void)getUserFollowingsWithUserId:(NSString*)userId
+//                                max:(NSInteger)max
+//                            succeed:(getArraySucceed)succeed{
+//    dispatch_queue_t queue = dispatch_queue_create("com.croath.quarter9.apiq0", 0);
+//    
+//    dispatch_async(queue, ^{
+//        dispatch_group_t group = dispatch_group_create();
+//        NSMutableArray *followings = [NSMutableArray array];
+//        for (int i = 0; i < max; i += 200) {
+//            dispatch_group_enter(group);
+//            [self getUserFollowingsWithUserId:userId start:i succeed:^(NSArray *array) {
+//                NSMutableArray *oneFollowings = [NSMutableArray array];
+//                [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//                    if ([obj isKindOfClass:[NSDictionary class]]) {
+//                        User *user = [[User alloc] initWithDictionary:obj];
+//                        [oneFollowings addObject:user];
+//                    }
+//                }];
+//                [followings addObjectsFromArray:oneFollowings];
+//                dispatch_group_leave(group);
+//            } failed:^(NSError *error) {
+//                dispatch_group_leave(group);
+//            }];
+//        }
+//        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+//        if (succeed) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                succeed(followings);
+//            });
+//        }
+//    });
+//}
 
-- (void)getUserFollowingsWithUserId:(NSString*)userId
-                              start:(NSInteger)start
-                            succeed:(getArraySucceed)succeed
+- (void)getUserInfoWithUserId:(NSString*)userId
+                            succeed:(getCurrentUserSucceed)succeed
                              failed:(failed)failed{
-    [_dManager GET:[NSString stringWithFormat:@"/shuo/v2/users/%@/following", userId]
-        parameters:@{@"start": [NSString stringWithFormat:@"%d", start],
-                     @"count": @"200"}
+    [_dManager GET:[NSString stringWithFormat:@"/v2/user/%@", userId]
+        parameters:nil
            success:^(NSURLSessionDataTask *task, id responseObject) {
                if (succeed) {
-                   succeed(responseObject);
+                   CurrentUser *user = [CurrentUser user];
+                   [user setPropertiesWithDict:responseObject];
+                   succeed(user);
                }
            } failure:^(NSURLSessionDataTask *task, NSError *error) {
                if (failed) {

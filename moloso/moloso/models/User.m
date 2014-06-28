@@ -40,11 +40,16 @@ NSString *UserGenderKey         = @"GenderKey";
 - (id)initWithDictionary:(NSDictionary*)dict{
     self = [super init];
     if (self) {
-        _userId = [dict objectForKey:@"id"];
-        _avatar = [dict objectForKey:@"small_avatar"];
-        _screenName = [dict objectForKey:@"screen_name"];
+        [self setPropertiesWithDict:dict];
     }
     return self;
+}
+
+- (void)setPropertiesWithDict:(NSDictionary*)dict{
+    _userId = [dict objectForKey:@"id"];
+    _avatar = [dict objectForKey:@"large_avatar"];
+    _screenName = [dict objectForKey:@"name"];
+    _bio = [dict objectForKey:@"desc"];
 }
 
 - (NSDictionary*)dict{

@@ -11,6 +11,7 @@
 #import "UMSocial.h"
 #import "PSAlertView.h"
 #import "CurrentUser.h"
+#import "APIClient.h"
 
 @interface GuideViewController (){
     BOOL _scorllTo3rd;
@@ -52,15 +53,14 @@
     snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         NSLog(@"response is %@",response);
         if (response.responseCode == UMSResponseCodeSuccess) {
-            CurrentUser *user = [CurrentUser user];
             NSDictionary *douban = [response.data objectForKey:@"douban"] ;
-            [user setUserId:[douban objectForKey:@"usid"]];
-            [user setScreenName:[douban objectForKey:@"username"]];
-            [user setAvatar:[douban objectForKey:@"icon"]];
-            
-            if (_loginDelegate != nil && [_loginDelegate respondsToSelector:@selector(userLoginOK)]) {
-                [_loginDelegate performSelector:@selector(userLoginOK) withObject:nil];
-            }
+            [[APIClient sharedClient] getUserInfoWithUserId:[douban objectForKey:@"usid"] succeed:^(CurrentUser *user) {
+                if (_loginDelegate != nil && [_loginDelegate respondsToSelector:@selector(userLoginOK)]) {
+                    [_loginDelegate performSelector:@selector(userLoginOK) withObject:nil];
+                }
+            } failed:^(NSError *error) {
+                
+            }];
         } else {
             PSAlertView *alert = [PSAlertView alertWithTitle:@"登录失败" message:response.message];
             [alert addButtonWithTitle:@"好的" block:nil];
