@@ -9,7 +9,7 @@
 #ifndef quarter9_GlobalDefines_h
 #define quarter9_GlobalDefines_h
 
-#define GREEN_COLOR [UIColor colorWithRed:64.f/255.f green:211.f/255.f blue:188.f/255.f alpha:1.f]
+#define BG_COLOR [UIColor colorWithRed:246.f/255.f green:246.f/255.f blue:246.f/255.f alpha:1.f]
 #define PINK_COLOR [UIColor colorWithRed:255.f/255.f green:42.f/255.f blue:104.f/255.f alpha:0.9f]
 
 
