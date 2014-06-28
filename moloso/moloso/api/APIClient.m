@@ -87,11 +87,24 @@ static APIClient *__client;
 - (void)agreeDatingWithDatingId:(NSString*)datingId
                         succeed:(getDatingSucceed)succeed
                          failed:(failed)failed{
-    Dating *dating = [Dating sample];
-    [dating setAcceptMale:YES];
-    if (succeed) {
-        succeed(dating);
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:datingId forKey:@"id"];
+    if ([CurrentUser user].gender == 1) {
+        [dict setObject:[CurrentUser user].userId forKey:@"user_male"];
+    } else {
+        [dict setObject:[CurrentUser user].userId forKey:@"user_female"];
     }
+    
+    [_tManager POST:@"/datings/accept.json" parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (succeed) {
+            Dating *dating = [[Dating alloc] initWithDictionary:responseObject];
+            succeed(dating);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (failed) {
+            failed(error);
+        }
+    }];
 }
 
 - (void)getUserInfoWithUserId:(NSString*)userId

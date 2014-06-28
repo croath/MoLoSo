@@ -13,14 +13,16 @@
 - (instancetype)initWithDictionary:(NSDictionary*)dict{
     self = [super init];
     if (self) {
-        _datingId = [dict objectForKey:@"id"];
         NSDictionary *userDict = [dict objectForKey:@"user"];
+        NSDictionary *datingDict = [dict objectForKey:@"dating"];
         if (![userDict isKindOfClass:[NSNull class]]) {
-            User *user = [[User alloc] initWithDictionary:userDict];
+            User *user = [[User alloc] initWithOwnDictionary:userDict];
             _anotherUser = user;
         }
-        _acceptMale = [[dict objectForKey:@"accept_male"] boolValue];
-        _acceptFemale = [[dict objectForKey:@"accept_female"] boolValue];
+        
+        _datingId = [NSString stringWithFormat:@"%d", [[datingDict objectForKey:@"id"] integerValue]];
+        _acceptMale = [[datingDict objectForKey:@"accept_male"] boolValue];
+        _acceptFemale = [[datingDict objectForKey:@"accept_female"] boolValue];
     }
     return self;
 }

@@ -45,11 +45,26 @@ NSString *UserGenderKey         = @"GenderKey";
     return self;
 }
 
+- (id)initWithOwnDictionary:(NSDictionary*)dict{
+    self = [super init];
+    if (self) {
+        [self setPropertiesWithOwnDict:dict];
+    }
+    return self;
+}
+
 - (void)setPropertiesWithDict:(NSDictionary*)dict{
     _userId = [dict objectForKey:@"id"];
     _avatar = [dict objectForKey:@"large_avatar"];
     _screenName = [dict objectForKey:@"name"];
     _bio = [dict objectForKey:@"desc"];
+}
+
+- (void)setPropertiesWithOwnDict:(NSDictionary*)dict{
+    _userId = [dict objectForKey:@"user_id"];
+    _avatar = [dict objectForKey:@"avatar"];
+    _screenName = [dict objectForKey:@"screen_name"];
+    _bio = [dict objectForKey:@"bio"];
 }
 
 - (NSDictionary*)dict{
@@ -65,6 +80,6 @@ NSString *UserGenderKey         = @"GenderKey";
 }
 
 - (NSString*)commanInterests{
-    return @"张玮玮 送你一颗子弹 生活多美好\nx-japan 万有引力之虹 张悦然\n变形金刚4 知日 云上的日子";
+    return @"张玮玮 送你一颗子弹 生活多美好\n\nx-japan 万有引力之虹 张悦然\n\n变形金刚4 知日 云上的日子";
 }
 @end

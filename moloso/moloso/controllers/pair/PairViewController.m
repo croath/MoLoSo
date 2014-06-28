@@ -90,11 +90,12 @@
      @property (weak, nonatomic) IBOutlet UIButton *agreeLabel;
      @property (weak, nonatomic) IBOutlet UIImageView *cardView;
      */
-        [_avatarView setImageWithURL:[NSURL URLWithString:_dating.anotherUser.avatar] placeholderImage:nil];
-        [_genderImage setImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"male" : @"female"]];
-        [_nameLabel setText:_dating.anotherUser.screenName];
-        [_bioLabel setText:_dating.anotherUser.bio];
-        [_agreeLabel setBackgroundImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"blue_btn" : @"pink_btn"] forState:UIControlStateNormal];
+    [_avatarView setImageWithURL:[NSURL URLWithString:_dating.anotherUser.avatar] placeholderImage:nil];
+    [_genderImage setImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"male" : @"female"]];
+    [_nameLabel setText:_dating.anotherUser.screenName];
+    [_bioLabel setText:_dating.anotherUser.bio];
+    [_agreeLabel setBackgroundImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"blue_btn" : @"pink_btn"] forState:UIControlStateNormal];
+    [_commonLabel setText:_dating.anotherUser.commanInterests];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -122,8 +123,6 @@
 - (IBAction)agreePressed:(id)sender {
     [[APIClient sharedClient] agreeDatingWithDatingId:_dating.datingId succeed:^(Dating *dating) {
         _dating = dating;
-//        _dating.acceptFemale = YES;
-        [[CurrentUser user] setGender:1];
         
         BOOL allAccept = [self judgeAcceptStatus];
         if (allAccept) {

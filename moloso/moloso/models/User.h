@@ -19,6 +19,7 @@
 - (id)initWithDictionary:(NSDictionary*)dict;
 - (NSDictionary*)dict;
 - (void)setPropertiesWithDict:(NSDictionary*)dict;
+- (id)initWithOwnDictionary:(NSDictionary*)dict;
 - (NSString*)commanInterests;
 
 @end
