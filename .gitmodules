@@ -1,0 +1,6 @@
+[submodule "moloso/moloso/denpendencies/AFNetworking"]
+	path = moloso/moloso/denpendencies/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "moloso/moloso/denpendencies/SVProgressHUD"]
+	path = moloso/moloso/denpendencies/SVProgressHUD
+	url = https://github.com/samvermette/SVProgressHUD.git
