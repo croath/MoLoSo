@@ -63,6 +63,8 @@
 		27DD95FE195EB4D900D65580 /* PairViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD95FC195EB4D900D65580 /* PairViewController.m */; };
 		27DD95FF195EB4D900D65580 /* PairViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD95FD195EB4D900D65580 /* PairViewController.xib */; };
 		27DD9603195EB5EE00D65580 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9602195EB5EE00D65580 /* APIClient.m */; };
+		27DD9606195ED5F200D65580 /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9605195ED5F200D65580 /* Coupon.m */; };
+		27DD9609195EE0E800D65580 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9608195EE0E800D65580 /* NSString+MD5.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +172,10 @@
 		27DD95FD195EB4D900D65580 /* PairViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PairViewController.xib; sourceTree = "<group>"; };
 		27DD9601195EB5EE00D65580 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		27DD9602195EB5EE00D65580 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		27DD9604195ED5F200D65580 /* Coupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coupon.h; sourceTree = "<group>"; };
+		27DD9605195ED5F200D65580 /* Coupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coupon.m; sourceTree = "<group>"; };
+		27DD9607195EE0E800D65580 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		27DD9608195EE0E800D65580 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +419,8 @@
 				27DD95E1195EAE4900D65580 /* CurrentUser.m */,
 				27DD95E2195EAE4900D65580 /* User.h */,
 				27DD95E3195EAE4900D65580 /* User.m */,
+				27DD9604195ED5F200D65580 /* Coupon.h */,
+				27DD9605195ED5F200D65580 /* Coupon.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -424,6 +432,8 @@
 				27DD95E8195EB1CD00D65580 /* PSFoundation */,
 				27DD95ED195EB1CD00D65580 /* UIImage+Color.h */,
 				27DD95EE195EB1CD00D65580 /* UIImage+Color.m */,
+				27DD9607195EE0E800D65580 /* NSString+MD5.h */,
+				27DD9608195EE0E800D65580 /* NSString+MD5.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -591,6 +601,8 @@
 				27DD95D6195EADD000D65580 /* AFURLRequestSerialization.m in Sources */,
 				27DD95D5195EADD000D65580 /* AFURLConnectionOperation.m in Sources */,
 				27DD95D4195EADD000D65580 /* AFSecurityPolicy.m in Sources */,
+				27DD9606195ED5F200D65580 /* Coupon.m in Sources */,
+				27DD9609195EE0E800D65580 /* NSString+MD5.m in Sources */,
 				27DD95F1195EB1CD00D65580 /* UIImage+Color.m in Sources */,
 				27DD95D0195EADD000D65580 /* AFHTTPRequestOperation.m in Sources */,
 				27DD95D8195EADD000D65580 /* AFURLSessionManager.m in Sources */,
