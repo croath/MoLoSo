@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PairViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *avatarView;
 
 @end

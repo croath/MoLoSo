@@ -7,6 +7,7 @@
 //
 
 #import "PairViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PairViewController ()
 
@@ -28,6 +29,14 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     // Do any additional setup after loading the view from its nib.
+    [self initViews];
+}
+
+- (void)initViews{
+    [_avatarView.layer setCornerRadius:50.f];
+    [_avatarView.layer setMasksToBounds:YES];
+    [_avatarView.layer setBorderColor:GREEN_COLOR.CGColor];
+    [_avatarView.layer setBorderWidth:3.f];
 }
 
 - (void)didReceiveMemoryWarning
