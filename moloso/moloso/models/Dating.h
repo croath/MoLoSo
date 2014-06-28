@@ -11,8 +11,11 @@
 
 @interface Dating : NSObject
 
-@property (nonatomic, strong) User *antherUser;
-@property (nonatomic, assign) BOOL acceptByYou;
-@property (nonatomic, assign) BOOL acceptByAnother;
+@property (nonatomic, strong) NSString *datingId;
+@property (nonatomic, strong) User *anotherUser;
+@property (nonatomic, assign) BOOL acceptMale;
+@property (nonatomic, assign) BOOL acceptFemale;
+
++ (instancetype)sample;
 
 @end

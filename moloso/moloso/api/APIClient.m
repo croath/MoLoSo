@@ -57,31 +57,19 @@ static APIClient *__client;
     }];
 }
 
-- (void)getDatingStatusWithDatingId:(NSString*)datingId
-                            succeed:(getDatingSucceed)succeed
-                             failed:(failed)failed{
-    Dating *dating = [[Dating alloc] init];
-    [dating setAntherUser:[CurrentUser user]];
+- (void)fetchcurrentDatingStatusSucceed:(getDatingSucceed)succeed
+                                 failed:(failed)failed{
+    Dating *dating = [Dating sample];
     if (succeed) {
         succeed(dating);
     }
-//    [_tManager GET:[NSString stringWithFormat:@"/duser/%@/marks.json", datingId]
-//        parameters:nil
-//           success:^(NSURLSessionDataTask *task, id responseObject) {
-//               if (succeed) {
-//                   succeed([responseObject objectForKey:@"marks"]);
-//               }
-//           } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//               if (failed) {
-//                   failed(error);
-//               }
-//           }];
 }
 
-- (void)fetchcurrentDatingStatusSucceed:(getDatingSucceed)succeed
-                                 failed:(failed)failed{
-    Dating *dating = [[Dating alloc] init];
-    [dating setAntherUser:[CurrentUser user]];
+- (void)agreeDatingWithDatingId:(NSString*)datingId
+                        succeed:(getDatingSucceed)succeed
+                         failed:(failed)failed{
+    Dating *dating = [Dating sample];
+    [dating setAcceptMale:YES];
     if (succeed) {
         succeed(dating);
     }

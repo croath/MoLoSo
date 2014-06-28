@@ -10,5 +10,13 @@
 
 @interface PairViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *avatarView;
+@property (weak, nonatomic) IBOutlet UIView *mainView;
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
+@property (weak, nonatomic) IBOutlet UIImageView *genderImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commonLabel;
+@property (weak, nonatomic) IBOutlet UIButton *agreeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *cardView;
 
 @end

@@ -10,9 +10,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "User.h"
 #import "WebViewController.h"
+#import "FBShimmeringView.h"
+#import "APIClient.h"
+#import "Dating.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface PairViewController (){
-    User *_user;
+    Dating *_dating;
 }
 
 @end
@@ -33,7 +37,55 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initViews];
-    [self toWebView];
+    [self loadRequest];
+}
+
+- (void)loadRequest{
+    [_mainView setHidden:YES];
+    __block FBShimmeringView *shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:shimmeringView];
+    
+    shimmeringView.contentView = _loadingView;
+    shimmeringView.shimmering = YES;
+    
+    [[APIClient sharedClient] fetchcurrentDatingStatusSucceed:^(Dating *dating) {
+        _dating = dating;
+        [self renderingViews];
+        [_mainView setAlpha:0.0f];
+        [_mainView setHidden:NO];
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             [_mainView setAlpha:1.f];
+                             [_loadingView setAlpha:0.f];
+                         } completion:^(BOOL finished) {
+                             if (finished) {
+                                 [_loadingView setHidden:YES];
+                                 shimmeringView.shimmering = NO;
+                                 [shimmeringView removeFromSuperview];
+                             }
+                         }];
+    } failed:^(NSError *error) {
+        
+    }];
+}
+
+- (void)renderingViews{
+    /*
+     @property (weak, nonatomic) IBOutlet UIImageView *avatarView;
+     @property (weak, nonatomic) IBOutlet UIView *mainView;
+     @property (weak, nonatomic) IBOutlet UIView *loadingView;
+     @property (weak, nonatomic) IBOutlet UIImageView *genderImage;
+     @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+     @property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+     @property (weak, nonatomic) IBOutlet UILabel *commonLabel;
+     @property (weak, nonatomic) IBOutlet UIButton *agreeLabel;
+     @property (weak, nonatomic) IBOutlet UIImageView *cardView;
+     */
+    [_avatarView setImageWithURL:[NSURL URLWithString:_dating.anotherUser.avatar] placeholderImage:nil];
+    [_genderImage setImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"male" : @"female"]];
+    [_nameLabel setText:_dating.anotherUser.screenName];
+    [_bioLabel setText:_dating.anotherUser.bio];
+    [_agreeLabel setBackgroundImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"blue_btn" : @"pink_btn"] forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -46,6 +98,10 @@
     [_avatarView.layer setMasksToBounds:YES];
     [_avatarView.layer setBorderColor:GREEN_COLOR.CGColor];
     [_avatarView.layer setBorderWidth:3.f];
+    
+    [_cardView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toWebView)];
+    [_cardView addGestureRecognizer:rec];
 }
 
 - (void)toWebView{
@@ -53,6 +109,8 @@
         NSString *urlStr = [NSString stringWithFormat:@"http://www.douban.com/people/%@/", @"catsoup"];
     WebViewController *webVC = [[WebViewController alloc] initWithUrlStr:urlStr];
     [self.navigationController pushViewController:webVC animated:YES];
+}
+- (IBAction)agreePressed:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning

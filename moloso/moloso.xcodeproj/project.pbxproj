@@ -87,6 +87,8 @@
 		27DD96EB195EEF8800D65580 /* ScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DD96E9195EEF8800D65580 /* ScanViewController.xib */; };
 		27DD96EE195EFDCC00D65580 /* Dating.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96ED195EFDCC00D65580 /* Dating.m */; };
 		27DD96F2195F0DF200D65580 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD96F1195F0DF200D65580 /* WebViewController.m */; };
+		27DD9703195F216F00D65580 /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9700195F216F00D65580 /* FBShimmeringLayer.m */; };
+		27DD9704195F216F00D65580 /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9702195F216F00D65580 /* FBShimmeringView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +254,11 @@
 		27DD96ED195EFDCC00D65580 /* Dating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dating.m; sourceTree = "<group>"; };
 		27DD96F0195F0DF200D65580 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		27DD96F1195F0DF200D65580 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		27DD96FE195F216F00D65580 /* FBShimmering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBShimmering.h; path = denpendencies/Shimmer/FBShimmering/FBShimmering.h; sourceTree = "<group>"; };
+		27DD96FF195F216F00D65580 /* FBShimmeringLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBShimmeringLayer.h; path = denpendencies/Shimmer/FBShimmering/FBShimmeringLayer.h; sourceTree = "<group>"; };
+		27DD9700195F216F00D65580 /* FBShimmeringLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBShimmeringLayer.m; path = denpendencies/Shimmer/FBShimmering/FBShimmeringLayer.m; sourceTree = "<group>"; };
+		27DD9701195F216F00D65580 /* FBShimmeringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBShimmeringView.h; path = denpendencies/Shimmer/FBShimmering/FBShimmeringView.h; sourceTree = "<group>"; };
+		27DD9702195F216F00D65580 /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBShimmeringView.m; path = denpendencies/Shimmer/FBShimmering/FBShimmeringView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +393,7 @@
 		27DD953E195EA48900D65580 /* dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				27DD96FD195F216400D65580 /* Shimmer */,
 				27DD96B8195EEB3A00D65580 /* ZBarSDK */,
 				27DD960A195EE7A900D65580 /* iOS-QR-Code-Encoder */,
 				27DD95D9195EADDE00D65580 /* SVHUD */,
@@ -703,6 +711,18 @@
 			path = webview;
 			sourceTree = "<group>";
 		};
+		27DD96FD195F216400D65580 /* Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				27DD96FE195F216F00D65580 /* FBShimmering.h */,
+				27DD96FF195F216F00D65580 /* FBShimmeringLayer.h */,
+				27DD9700195F216F00D65580 /* FBShimmeringLayer.m */,
+				27DD9701195F216F00D65580 /* FBShimmeringView.h */,
+				27DD9702195F216F00D65580 /* FBShimmeringView.m */,
+			);
+			name = Shimmer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -826,6 +846,7 @@
 				27DD9689195EE7AA00D65580 /* qrencode.c in Sources */,
 				27DD9606195ED5F200D65580 /* Coupon.m in Sources */,
 				27DD968C195EE7AA00D65580 /* rscode.c in Sources */,
+				27DD9704195F216F00D65580 /* FBShimmeringView.m in Sources */,
 				27DD9609195EE0E800D65580 /* NSString+MD5.m in Sources */,
 				27DD95F1195EB1CD00D65580 /* UIImage+Color.m in Sources */,
 				27DD9687195EE7AA00D65580 /* bitstream.c in Sources */,
@@ -851,6 +872,7 @@
 				27DD9603195EB5EE00D65580 /* APIClient.m in Sources */,
 				27DD95D3195EADD000D65580 /* AFNetworkReachabilityManager.m in Sources */,
 				27DD95F0195EB1CD00D65580 /* PSAlertView.m in Sources */,
+				27DD9703195F216F00D65580 /* FBShimmeringLayer.m in Sources */,
 				27DD9516195EA2C100D65580 /* main.m in Sources */,
 				27DD95F8195EB2B600D65580 /* GuideViewController.m in Sources */,
 			);
@@ -941,6 +963,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -977,6 +1000,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
