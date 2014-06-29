@@ -113,7 +113,7 @@
     [_avatarView.layer setCornerRadius:50.f];
     [_avatarView.layer setMasksToBounds:YES];
     [_avatarView.layer setBorderColor:MAIN_PINK_COLOR.CGColor];
-    [_avatarView.layer setBorderWidth:3.f];
+    [_avatarView.layer setBorderWidth:1.f];
     
     [_fakeView.layer setCornerRadius:50.f];
     [_fakeView.layer setMasksToBounds:YES];
