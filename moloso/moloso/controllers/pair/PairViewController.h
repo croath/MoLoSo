@@ -21,4 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIView *resultView;
 @property (strong, nonatomic) IBOutlet UIView *popupView;
 
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @end

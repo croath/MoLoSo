@@ -17,6 +17,7 @@
 #import "SVProgressHUD.h"
 #import "SessionsViewController.h"
 #import "ScanViewController.h"
+#import "POP.h"
 
 @interface PairViewController (){
     Dating *_dating;
@@ -110,7 +111,7 @@
     [_resultView setHidden:YES];
     [_avatarView.layer setCornerRadius:50.f];
     [_avatarView.layer setMasksToBounds:YES];
-    [_avatarView.layer setBorderColor:GREEN_COLOR.CGColor];
+    [_avatarView.layer setBorderColor:MAIN_PINK_COLOR.CGColor];
     [_avatarView.layer setBorderWidth:3.f];
     
     [_cardView setUserInteractionEnabled:YES];
@@ -120,6 +121,12 @@
     [_popupView setUserInteractionEnabled:YES];
     UITapGestureRecognizer *popr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removePop)];
     [_popupView addGestureRecognizer:popr];
+    
+    [_leftButton.layer setCornerRadius:17.f];
+    [_leftButton.layer setMasksToBounds:YES];
+    
+    [_rightButton.layer setCornerRadius:17.f];
+    [_rightButton.layer setMasksToBounds:YES];
     
 }
 

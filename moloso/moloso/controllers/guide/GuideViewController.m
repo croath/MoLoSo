@@ -37,14 +37,11 @@
 }
 
 - (void)initViews{
-    [_loginButton setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0.f
-                                                                             green:120.f/255.f
-                                                                              blue:0.f
-                                                                             alpha:1.f]
+    [_loginButton setBackgroundImage:[UIImage imageWithColor:MAIN_BLUE_COLOR
                                                         size:CGSizeMake(1, 1)]
                             forState:UIControlStateNormal];
     [_loginButton.layer setMasksToBounds:YES];
-    [_loginButton.layer setCornerRadius:5.f];
+    [_loginButton.layer setCornerRadius:20.f];
     [_loginButton addTarget:self action:@selector(loginPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 
