@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @property (weak, nonatomic) id<LoginDelegate> loginDelegate;
+@property (weak, nonatomic) IBOutlet UIImageView *leftView;
+@property (weak, nonatomic) IBOutlet UIImageView *rightView;
 @end

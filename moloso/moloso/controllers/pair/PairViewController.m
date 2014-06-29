@@ -62,7 +62,7 @@
             [self renderingViews];
             [_mainView setAlpha:0.0f];
             [_mainView setHidden:NO];
-            [UIView animateWithDuration:0.5
+            [UIView animateWithDuration:2.0
                              animations:^{
                                  [_mainView setAlpha:1.f];
                                  [_loadingView setAlpha:0.f];
@@ -114,6 +114,9 @@
     [_avatarView.layer setMasksToBounds:YES];
     [_avatarView.layer setBorderColor:MAIN_PINK_COLOR.CGColor];
     [_avatarView.layer setBorderWidth:3.f];
+    
+    [_fakeView.layer setCornerRadius:50.f];
+    [_fakeView.layer setMasksToBounds:YES];
     
     [_cardView setUserInteractionEnabled:YES];
     UITapGestureRecognizer *rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toWebView)];

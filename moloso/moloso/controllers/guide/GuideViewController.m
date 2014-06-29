@@ -12,9 +12,11 @@
 #import "PSAlertView.h"
 #import "CurrentUser.h"
 #import "APIClient.h"
+#import "FBShimmeringView.h"
 
 @interface GuideViewController (){
     BOOL _scorllTo3rd;
+    FBShimmeringView *_shimmeringView;
 }
 
 @end
@@ -34,14 +36,29 @@
 {
     [super viewDidLoad];
     [self initViews];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5
+                              delay:1.0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             [_leftView setCenter:CGPointMake(_leftView.center.x + 195, _leftView.center.y)];
+                             [_rightView setCenter:CGPointMake(_rightView.center.x - 197, _rightView.center.y)];
+                         } completion:^(BOOL finished) {
+                             
+                         }];
+    });
 }
 
 - (void)initViews{
-    [_loginButton setBackgroundImage:[UIImage imageWithColor:MAIN_BLUE_COLOR
-                                                        size:CGSizeMake(1, 1)]
-                            forState:UIControlStateNormal];
-    [_loginButton.layer setMasksToBounds:YES];
-    [_loginButton.layer setCornerRadius:20.f];
+    
+    if (_shimmeringView == nil) {
+        _shimmeringView = [[FBShimmeringView alloc] initWithFrame:_loginButton.frame];
+        [self.view addSubview:_shimmeringView];
+    }
+    
+    _shimmeringView.contentView = _loginButton;
+    _shimmeringView.shimmering = YES;
+    
     [_loginButton addTarget:self action:@selector(loginPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 

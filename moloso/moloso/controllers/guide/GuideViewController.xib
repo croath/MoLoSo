@@ -7,52 +7,48 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuideViewController">
             <connections>
-                <outlet property="bottomView" destination="EvM-1R-qeC" id="fLp-Fr-0F1"/>
+                <outlet property="leftView" destination="OjW-jt-CVQ" id="7nr-Hx-TdO"/>
                 <outlet property="loginButton" destination="wNE-Lu-ZKa" id="Hc4-Ny-8PJ"/>
+                <outlet property="rightView" destination="a4f-b6-lAT" id="q38-h9-wFj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+        <view autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5JY-jU-NtK">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNE-Lu-ZKa">
+                    <rect key="frame" x="87" y="388" width="147" height="68"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                    <size key="titleShadowOffset" width="0.0" height="1"/>
+                    <state key="normal" backgroundImage="login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="OjW-jt-CVQ">
+                    <rect key="frame" x="-100" y="98" width="88" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EvM-1R-qeC">
-                    <rect key="frame" x="0.0" y="420" width="320" height="60"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNE-Lu-ZKa">
-                            <rect key="frame" x="20" y="9" width="280" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <size key="titleShadowOffset" width="0.0" height="1"/>
-                            <state key="normal" title="豆瓣账号登录">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="OYU-mp-8mT"/>
-                        <constraint firstAttribute="width" constant="320" id="hd8-Fa-mC8"/>
-                    </constraints>
-                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="a4f-b6-lAT">
+                    <rect key="frame" x="350" y="98" width="89" height="89"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text" translatesAutoresizingMaskIntoConstraints="NO" id="xuW-x4-7n7">
+                    <rect key="frame" x="129" y="215" width="62" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="EvM-1R-qeC" secondAttribute="trailing" id="7Gb-gD-9Pt"/>
-                <constraint firstItem="5JY-jU-NtK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M8h-w6-jHg"/>
-                <constraint firstItem="5JY-jU-NtK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NS1-LH-Eyo"/>
-                <constraint firstItem="EvM-1R-qeC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wmw-UY-N8L"/>
-                <constraint firstItem="5JY-jU-NtK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ywm-4t-wf3"/>
-                <constraint firstAttribute="bottom" secondItem="5JY-jU-NtK" secondAttribute="bottom" id="amq-Jl-Wdc"/>
-                <constraint firstItem="5JY-jU-NtK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lgy-R9-6TU"/>
-                <constraint firstAttribute="trailing" secondItem="5JY-jU-NtK" secondAttribute="trailing" id="waz-NN-M2x"/>
-                <constraint firstAttribute="bottom" secondItem="EvM-1R-qeC" secondAttribute="bottom" id="wfK-ja-YYv"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="left" width="88" height="88"/>
+        <image name="login" width="147" height="68"/>
+        <image name="right" width="94" height="94"/>
+        <image name="text" width="78" height="44"/>
+    </resources>
 </document>
