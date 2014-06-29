@@ -100,6 +100,7 @@
     [_agreeLabel setBackgroundImage:[UIImage imageNamed:_dating.anotherUser.gender == 1 ? @"blue_btn" : @"pink_btn"] forState:UIControlStateNormal];
     [_agreeLabel setTitle:(_dating.anotherUser.gender == 1 ? @"想见他" : @"想见她") forState:UIControlStateNormal];
     [_commonLabel setText:_dating.anotherUser.commanInterests];
+    [_rightButton setTitle:(_dating.anotherUser.gender == 1 ? @"与他对话" : @"与她对话") forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
